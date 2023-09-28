@@ -5,7 +5,7 @@ export default function handleResponseFromAPI(promise) {
   };
 
   return promise
-    .then(() => obj)
-    .catch(() => new Error())
-    .finally(() => console.log('Got a response from the API'));
+    .then(() => obj) // Resolved promise result
+    .catch(() => new Error()) // Catch error when promise rejects
+    .finally(() => console.log('Got a response from the API')); // Finally returns no matter what happens
 }
