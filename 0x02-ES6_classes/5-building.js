@@ -9,10 +9,12 @@ export default class Building {
     }
 
     /*
-        Checks if the constructor of the instance (this.constructor) is not the
-        Building class itself, and if the 'evacuationWarningMessage' method is a function.
-        If these conditions are not met, it throws an error, enforcing that subclasses must
-        override the evacuationWarningMessage method.
+        The purpose of this condition is to prevent instances of the Building class 
+        from being created directly because it's intended to be an abstract class:
+            Checks if the constructor of the instance (this.constructor) is not the
+            Building class itself, and if the 'evacuationWarningMessage' method is a function.
+            If these conditions are not met, it throws an error, enforcing that subclasses must
+            override the evacuationWarningMessage method.
         */
     if (this.constructor !== Building
             && typeof this.evacuationWarningMessage !== 'function') {
