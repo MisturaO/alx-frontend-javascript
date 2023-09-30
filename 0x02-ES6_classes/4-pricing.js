@@ -27,7 +27,7 @@ export default class Pricing {
 
   set currency(val) {
     if (!(this._currency instanceof Currency)) {
-      throw new TypeError('Not an instance of currency');
+      throw new TypeError('Not an instance of Currency');
     }
     this._currency = val;
   }
@@ -51,6 +51,6 @@ export default class Pricing {
     if (typeof amount !== 'number' && typeof conversionRate !== 'number') {
       throw new TypeError('Not a number');
     }
-    return this._amount * conversionRate;
+    return amount * conversionRate;
   }
 }
