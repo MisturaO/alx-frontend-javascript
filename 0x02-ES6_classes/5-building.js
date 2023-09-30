@@ -10,8 +10,8 @@ export default class Building {
 
     /*
         The purpose of this condition is to prevent instances of the Building class 
-        from being created directly because it's intended to be an abstract class i.e. 
-        if its not being use to instatiate an instance:
+        from being created directly because it's intended to be an abstract class (i.e. 
+        inherited) i.e. if its not being used to instatiate an instance:
             Checks if the constructor of the instance (this.constructor) is not the
             Building class itself, and if the 'evacuationWarningMessage' method is a function.
             If these conditions are not met, it throws an error, enforcing that subclasses must
