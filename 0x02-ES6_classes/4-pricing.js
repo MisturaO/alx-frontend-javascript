@@ -24,7 +24,7 @@ export default class Pricing {
   }
 
   get currency() {
-    return this.currency;
+    return this._currency;
   }
 
   set currency(val) {
@@ -35,6 +35,16 @@ export default class Pricing {
   }
 
   displayFullPrice() {
+    /* The ${this._currency.name} (${this._currency.code}) will get the value of 'name'
+        and 'code' from the 'Currency class' and store the Currency object of the currency
+        class as the value of the attribute(i.e key in object) 'this._currency' of the Pricing
+        class(i.e it will be the value of the key '_currency' inside the Pricing object when
+        instatntiated). And that is why we have this output:
+            Pricing {
+                _amount: 100,
+                _currency: Currency { _code: 'EUR', _name: 'Euro' }
+            }
+            */
     return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
