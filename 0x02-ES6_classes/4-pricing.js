@@ -4,8 +4,6 @@ export default class Pricing {
   constructor(amount, currency) {
     if (typeof amount !== 'number') {
       throw new TypeError('Not a number');
-    } else if (!(this._currency instanceof Currency)) {
-      throw new TypeError('Not an instance of Currency');
     }
 
     this._amount = amount;
@@ -28,7 +26,7 @@ export default class Pricing {
   }
 
   set currency(val) {
-    if (!(this._currency instanceof Currency)) {
+    if (!(val instanceof Currency)) {
       throw new TypeError('Not an instance of Currency');
     }
     this._currency = val;
