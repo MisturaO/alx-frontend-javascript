@@ -4,6 +4,8 @@ export default class Pricing {
   constructor(amount, currency) {
     if (typeof amount !== 'number') {
       throw new TypeError('Not a number');
+    } else if (!(this._currency instanceof Currency)) {
+      throw new TypeError('Not an instance of Currency');
     }
 
     this._amount = amount;
@@ -48,7 +50,9 @@ export default class Pricing {
   }
 
   static convertPrice(amount, conversionRate) {
-    if (typeof amount !== 'number' || typeof conversionRate !== 'number') {
+    if (typeof amount !== 'number') {
+      throw new TypeError('Not a number');
+    } else if (typeof conversionRate !== 'number') {
       throw new TypeError('Not a number');
     }
     return amount * conversionRate;
