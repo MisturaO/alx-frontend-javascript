@@ -29,15 +29,13 @@ export default class HolbertonClass {
 //     if(hint == 'string'){
 //         return this._location;
 //     }
-    /* This is the default option to ensure that the object itself is returned if the 
-    conversion hint is not one of the expected values above, to avoid unexpected behaviour*/
+  /* This is the default option to ensure that the object itself is returned if the
+    conversion hint is not one of the expected values above, to avoid unexpected behaviour */
 //     return this;
 //   }
 }
 
-
-
-/* USAGE: When you convert the object to a primitive type, the interpreter will return any object 
+/* USAGE: When you convert the object to a primitive type, the interpreter will return any object
 that is explicitly converted to that particular primitive type in the object/class declarartion */
 // const hc = new HolbertonClass(12, "Mezzanine") //Object created from the instance of the class
 // console.log(Number(hc)); // Output: 12
