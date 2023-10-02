@@ -10,7 +10,7 @@ export default function getListStudentIds(array) {
     return [];
   }
 
-  // Using map to get the value of the first index of the objects in a list
+  // Using map to get the value of the first index of the objects and return it in a list
   const arr = array.map((obj) => Object.values(obj)[0]); 
   return arr;
 }
