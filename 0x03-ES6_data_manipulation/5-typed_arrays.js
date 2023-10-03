@@ -5,11 +5,12 @@ export default function createInt8TypedArray(length, position, value) {
     return 'Position outside range';
   }
 
-  const buffer = new ArrayBuffer(length);
-  const dataView = new DataView(buffer);
+  const buffer = new DataView(new ArrayBuffer(length), 0, length);
+  //   const buffer = new ArrayBuffer(length);
+  //   const dataView = new DataView(buffer);
 
-  dataView.setInt8(position, value);
+  buffer.setInt8(position, value);
   //   const int8Array = new Int8Array(buffer);
   //   int8Array[position] = value; //Another syntax to achieve this usig the bracket syntax
-  return dataView;
+  return buffer;
 }
