@@ -25,6 +25,5 @@ export default function createInt8TypedArray(length, position, value) {
   dataView.setInt8(position, value);
   //   const int8Array = new Int8Array(buffer);
   //   int8Array[position] = value; //Another syntax to achieve this usig the bracket syntax
-
   return dataView;
 }
