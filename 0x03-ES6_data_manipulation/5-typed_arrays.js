@@ -1,7 +1,7 @@
 // Using binary data (i.e. bits) to store and manipulate data in memory
 
 export default function createInt8TypedArray(length, position, value) {
-  if (position < 0 && position >= length) {
+  if (position >= length) {
     return 'Position outside range';
   }
 
