@@ -1,7 +1,7 @@
 /*
 Combines two objects:
     Returns an array of students for a specific city with their new grade:
-    
+
     It should accept a list of students (from 'getListStudents'), a 'city '(String),
     and 'newGrades'(Array of “grade” objects) as parameters.
     If a student doesn’t have grade in newGrades, the final grade should be N/A.
@@ -20,21 +20,21 @@ function updateStudentGradeByCity(array, city, newGrades) {
 
   const arr = array.filter((student) => student.location === city)
     .map((studentGrade) => {
-      let updateGrade = null;
+      let addGrade = null;
       // I have to loop through the newGrades array to access the grade because
       // map doesn't have the functionality to handle two arrays at the same time.
       // Then stored value in 'updateGrade'
       for (const objGrade of newGrades) {
         if (objGrade.studentId === studentGrade.id) {
-          updateGrade = objGrade.grade;
+          addGrade = objGrade.grade;
           break; // stops the search when a match is found
         }
       }
 
-      if (updateGrade !== null) {
+      if (addGrade !== null) {
         const newObj = {
           ...studentGrade,
-          grade: updateGrade,
+          grade: addGrade,
         };
         return newObj;
       }
