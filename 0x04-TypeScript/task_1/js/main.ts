@@ -19,3 +19,39 @@ export interface Teacher {
 export interface Directors extends Teacher{
     numberOfReports: number;
 }
+
+export interface printTeacherFunction{
+    (firstName: string, lastName: string): string;
+}
+
+//Function var with interface(referencing interface with anonymous function improves readability)
+export const printTeacher: printTeacherFunction = (firstName, lastName) => {
+    const firstLetter = firstName[0];
+    return `${firstLetter} ${lastName}`;
+}
+
+console.log(printTeacher("John", "Doe"))
+
+//A class (StudentClass) referencing Teacher typescript interface
+export class StudentClass implements Teacher {
+    //All the interface properties(non otpional) the class implements must be referenced.
+    firstName: string;
+    lastName: string;
+    fullTimeEmployee: boolean;
+    location: string;
+
+    //The properties we need to be init with our objects(class instances) can be constructed here.
+    constructor(firstName: string, lastName: string){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    //class methods
+    workOnHomework(){
+        return('Currently working');
+    }
+
+    displayName(){
+        return this.firstName;
+    }
+}
