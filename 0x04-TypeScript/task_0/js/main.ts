@@ -55,7 +55,7 @@ const tableBody = document.createElement('tbody');
 table.appendChild(tableBody);
 
 studentsList.forEach((student) => {//forEach method will perform the below on each arary elements.
-    //creates a row in the tableBody
+    //creates a row in the tableBody with each student information per line(row)
     const row = document.createElement('tr');
 
     //add first data in the row
