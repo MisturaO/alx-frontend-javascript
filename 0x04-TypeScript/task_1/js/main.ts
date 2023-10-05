@@ -11,6 +11,11 @@ export interface Teacher {
     fullTimeEmployee: boolean; //Should always be defined in the object using the interface.
     yearsOfExperience?: number;//this attribute is optional. You can decide to or not define it.
     location: string;//This attribute should always be defined in the object using the interface.
-    //index[] signature to add any attribute not specified in the inter in obj using the interface
+    //index[] signature to add any attr not specified in this interface, in the obj refrencing it
     [key: string]: boolean | string | number | any;
+}
+
+//interface named 'Directors' that extends Teacher.
+export interface Directors extends Teacher{
+    numberOfReports: number;
 }
