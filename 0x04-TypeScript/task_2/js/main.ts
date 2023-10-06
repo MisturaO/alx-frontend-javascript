@@ -30,9 +30,9 @@ export class Director implements DirectorInterface{
         return ('Getting a coffee break');
     }
 
-    getName(){
-        return 'Director';
-    }
+    // getName(){
+    //     return 'Director';
+    // }
 }
 
 
@@ -48,21 +48,21 @@ export class Teacher implements TeacherInterface{
         return('Getting to work');
     }
 
-    getName(){
-        return 'Teacher';
-    }
+    // getName(){
+    //     return 'Teacher';
+    // }
 }
 
 /*if salary is a number and less than 500 - It should return a new Teacher. 
 Otherwise it should return a Director */
-export function createEmployee(salary: string | number){
-    const dir = new Director();
-    const teacher = new Teacher();
+export function createEmployee(salary: string | number): (Director | Teacher){
+    // const dir = new Director();
+    // const teacher = new Teacher();
 
     if(typeof salary === 'number' && salary < 500){
-        return teacher.getName();
+        return new Teacher;
     }
-    return dir.getName();
+    return new Director;
 }
 
 
@@ -70,3 +70,43 @@ export function createEmployee(salary: string | number){
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
+
+
+//Checks if 'employee' is an instance of the 'Director' class or a subclass of 'Director'.
+//it uses a union type i.e. 'employee can either be a Director or teacher type.
+//If employee is an instance of Director or a subclass of Director, the expression evaluates 
+//to true; otherwise, it evaluates to false.
+export function isDirector(employee: (Director | Teacher)){
+    return employee instanceof Director;
+}
+
+export function executeWork(employee: (Director | Teacher)){
+    if(isDirector(employee)){
+        //I have to associate(as) the employee param with Director class to call Director's method
+        //even though the check returns true that 'employee' is an instance of Director class.
+        return (employee as Director).workDirectorTasks();
+    }else{
+        return (employee as Teacher).workTeacherTasks();
+    }
+}
+
+//USAGE: of 'createEmployee' function as an argument to executeWork function
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+
+
+/*Defines a string literal type(i.e. variable) named 'Subjects' allowing a variable 
+to have the value 'Math' or 'History' only. This means variable 'Subjects' can only 
+have values 'Math' or 'History', any other won't be valid*/
+export type Subjects = ('Math' | 'History');
+
+/*The data type of function 'teachClass' parameter is 'Subjects' and that means 'todayClass' 
+can only have the values 'Math' and 'History, and the function's return type is 'string' because
+it returns a string value*/
+export function teachClass(todayClass: Subjects): string{
+    if(todayClass === 'Math') return 'Teaching Math';
+    return 'Teaching History';
+}
+
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
